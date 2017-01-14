@@ -11,5 +11,6 @@ package pkg10archivos;
  */
 public interface IEscribible {
     public void escribir(String url);
-    public void leer(String url);
+   // public void leer(String url);
+    public IEscribible leer(String url,long timeStamp);
 }

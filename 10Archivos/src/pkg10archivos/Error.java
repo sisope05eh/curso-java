@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package pkg10archivos;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -55,11 +57,37 @@ public class Error implements IEscribible{
             System.out.println("El archivo no existe");
         }
     }*/
-    
     @Override
-    public void leer(String url){
-       
+    public IEscribible leer(String url,long timeStam){
+        try {
+            FileReader fR = new FileReader(url);
+            BufferedReader bR = new BufferedReader(fR);
+            String linea;
+            while((linea= bR.readLine())!=null){
+                String[] sl = linea.split("-");
+                System.out.println(sl[0]);
+                if(sl[0].trim().equals(Long.toString(timeStam))){
+                    this.timeStamp = timeStam;
+                    this.codigoError = Integer.parseInt(sl[1]);
+                    this.descripcionError = sl[2];
+                    return this;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Error.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Error.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return null;
     }
+    @Override
+    public String toString(){
+        return timeStamp + " | " + codigoError + " | " + descripcionError + "\n";
+    }
+  //  @Override
+   // public void leer(String url){
+       
+   // }
     public long getTimestamp() {
         return timeStamp;
     }
@@ -89,5 +117,9 @@ public class Error implements IEscribible{
        this.codigoError = codigoError;
        this.descripcionError = descripcionError;
     }
-      
+      public Error() {
+       this.timeStamp = new Date().getTime();
+       this.codigoError = codigoError;
+       this.descripcionError = descripcionError;
+    }  
 }

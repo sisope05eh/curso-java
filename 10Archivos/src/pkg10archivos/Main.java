@@ -20,13 +20,16 @@ public class Main {
        Scanner lector = new Scanner(System.in);
        Scanner lector2 = new Scanner(System.in);
        
-       System.out.println("Ingresa el Código del error");
-       int codigo = lector.nextInt();
-       System.out.println("Ingresa la Descripción del error");
-       String descripcion = lector2.nextLine();
-       
-       Error error = new Error(codigo, descripcion);
-       error.escribir("C:\\Users\\me.horta\\Desktop\\descarga.txt");
+         IEscribible e = new Error();
+         e.leer("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\10Archivos\\src\\pkg10archivos\\descarga.txt",1484411725777L);
+         System.out.println(e);
+//       System.out.println("Ingresa el Código del error");
+//       int codigo = lector.nextInt();
+//       System.out.println("Ingresa la Descripción del error");
+//       String descripcion = lector2.nextLine();
+//       
+//       Error error = new Error(codigo, descripcion);
+//       error.escribir("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\10Archivos\\src\\pkg10archivos\\descarga.txt");
     }
     
 }
