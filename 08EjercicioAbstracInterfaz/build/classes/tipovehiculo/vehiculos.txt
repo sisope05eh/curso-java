@@ -1,0 +1,1 @@
+idVehiculo: 12 Marca: MAMA Modelo: 12 Color: 12 Capacidad: 12 Encendido electrónico: true Tipo Traccion: 1

@@ -5,6 +5,8 @@
  */
 package vehiculos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author me.horta
@@ -61,10 +63,17 @@ public abstract class Vehiculos {
         this.color = color;
         this.capacidad= capacidad;
     }
+     
+    public Vehiculos(){
+    
+    };
     
     public abstract String comoFunciona();
     
     public abstract String queTransporta();
     
+    public  abstract void Registrar();
+    
+    public abstract void consultarVehiculos(); 
     
 }
