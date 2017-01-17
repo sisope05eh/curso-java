@@ -80,13 +80,23 @@ public class Avion extends Vehiculos{
          
          
          for(int a =0;a<avion.size();a++){
-             linea= "idVehiculo: "+ avion.get(a).getIdvehiculo()+ " Marca: "+avion.get(a).getMarca()+ " Modelo: "+avion.get(a).getModelo()+" Color: "+avion.get(a).getColor()+" Capacidad: "+avion.get(a).getCapacidad()+" Propulsoes: "+avion.get(a).getPropulsores()+" Tipo de Avión: "+avion.get(a).getTipoAvion()+"\n";
+             linea= "idVehiculo: "+ avion.get(a).getIdvehiculo()+ 
+                     "-Marca: "+avion.get(a).getMarca()+ 
+                     "-Modelo: "+avion.get(a).getModelo()+
+                     "-Color: "+avion.get(a).getColor()+
+                     "-Capacidad: "+avion.get(a).getCapacidad()+
+                     "-Propulsoes: "+avion.get(a).getPropulsores()+
+                     "-Tipo de Avión: "+avion.get(a).getTipoAvion()+
+                     "-Como funciona: "+ comoFunciona()+
+                     "-Que transporta: "+ queTransporta()+
+                     "-Vehiculo: Avión"+
+                     "\n";
          
          }
          
          
           try {
-            FileOutputStream f = new FileOutputStream("/Users/macbookpro/NetBeansProjects/curso-java-master/08EjercicioAbstracInterfaz/src/tipovehiculo/vehiculos.txt",true);
+            FileOutputStream f = new FileOutputStream("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\08EjercicioAbstracInterfaz\\src\\tipovehiculo\\vehiculos.txt",true);
             OutputStreamWriter oS= new OutputStreamWriter(f,"UTF-8");
             BufferedWriter bW = new BufferedWriter(oS);
             String lineaError = linea;

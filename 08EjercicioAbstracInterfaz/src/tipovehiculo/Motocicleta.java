@@ -91,18 +91,21 @@ public class Motocicleta extends Vehiculos  {
         
          for(int a =0;a<moto.size();a++){
              linea= "idVehiculo: "+ moto.get(a).getIdvehiculo()+
-                     " Marca: "+moto.get(a).getMarca()+
-                     " Modelo: "+moto.get(a).getModelo()+
-                     " Color: "+moto.get(a).getColor()+
-                     " Capacidad: "+moto.get(a).getCapacidad()+
-                     " Cascos: "+moto.get(a).getCascos()+
-                     " Tipo de Motocicleta: "+moto.get(a).getTipoMotocicleta()+
-                     " Tipo de encendido: "+moto.get(a).getTipoEncendido()+
+                     "-Marca: "+moto.get(a).getMarca()+
+                     "-Modelo: "+moto.get(a).getModelo()+
+                     "-Color: "+moto.get(a).getColor()+
+                     "-Capacidad: "+moto.get(a).getCapacidad()+
+                     "-Cascos: "+moto.get(a).getCascos()+
+                     "-Tipo de Motocicleta: "+moto.get(a).getTipoMotocicleta()+
+                     "-Tipo de encendido: "+moto.get(a).getTipoEncendido()+
+                     "-Como funciona: "+ comoFunciona()+
+                     "-Que transporta: "+ queTransporta()+
+                     "-Vehiculo: Motocicleta"+
                      "\n";
          
          }
          try {
-            FileOutputStream f = new FileOutputStream("/Users/macbookpro/NetBeansProjects/curso-java-master/08EjercicioAbstracInterfaz/src/tipovehiculo/vehiculos.txt",true);
+            FileOutputStream f = new FileOutputStream("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\08EjercicioAbstracInterfaz\\src\\tipovehiculo\\vehiculos.txt",true);
             OutputStreamWriter oS= new OutputStreamWriter(f,"UTF-8");
             BufferedWriter bW = new BufferedWriter(oS);
             String lineaError = linea;
@@ -123,7 +126,7 @@ public class Motocicleta extends Vehiculos  {
     @Override
     public void consultarVehiculos() {
         try {
-            FileReader fR = new FileReader("/Users/macbookpro/NetBeansProjects/curso-java-master/08EjercicioAbstracInterfaz/src/tipovehiculo/vehiculos.txt");
+            FileReader fR = new FileReader("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\08EjercicioAbstracInterfaz\\src\\tipovehiculo\\vehiculos.txt");
             BufferedReader bR = new BufferedReader(fR);
             String linea2;
             while((linea2= bR.readLine())!=null){

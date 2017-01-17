@@ -131,19 +131,22 @@ public class Bicicleta extends Vehiculos {
          
          for(int a =0;a<bici.size();a++){
              linea= "idVehiculo: "+ bici.get(a).getIdvehiculo()+
-                     " Marca: "+bici.get(a).getMarca()+
-                     " Modelo: "+bici.get(a).getModelo()+
-                     " Color: "+bici.get(a).getColor()+
-                     " Capacidad: "+bici.get(a).getCapacidad()+
-                     " Tipo de bicileta: "+bici.get(a).getTipoBicicleta()+
-                     " Frenos de disco: "+bici.get(a).getFrenosDisco()+
-                     " Velocimetro: "+bici.get(a).getVelocimetro()+
+                     "-Marca: "+bici.get(a).getMarca()+
+                     "-Modelo: "+bici.get(a).getModelo()+
+                     "-Color: "+bici.get(a).getColor()+
+                     "-Capacidad: "+bici.get(a).getCapacidad()+
+                     "-Tipo de bicileta: "+bici.get(a).getTipoBicicleta()+
+                     "-Frenos de disco: "+bici.get(a).getFrenosDisco()+
+                     "-Velocimetro: "+bici.get(a).getVelocimetro()+
+                     "-Como funciona: "+ comoFunciona()+
+                     "-Que transporta: "+ queTransporta()+
+                     "-Vehiculo: Bicicleta"+
                      "\n";
          
          }
    
          try {
-            FileOutputStream f = new FileOutputStream("/Users/macbookpro/NetBeansProjects/curso-java-master/08EjercicioAbstracInterfaz/src/tipovehiculo/vehiculos.txt",true);
+            FileOutputStream f = new FileOutputStream("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\08EjercicioAbstracInterfaz\\src\\tipovehiculo\\vehiculos.txt",true);
             OutputStreamWriter oS= new OutputStreamWriter(f,"UTF-8");
             BufferedWriter bW = new BufferedWriter(oS);
             String lineaError = linea;

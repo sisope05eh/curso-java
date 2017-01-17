@@ -103,17 +103,20 @@ public class Automovil extends Vehiculos{
         
          for(int a =0;a<auto.size();a++){
              linea= "idVehiculo: "+ auto.get(a).getIdvehiculo()+
-                     " Marca: "+auto.get(a).getMarca()+
-                     " Modelo: "+auto.get(a).getModelo()+
-                     " Color: "+auto.get(a).getColor()+
-                     " Capacidad: "+auto.get(a).getCapacidad()+
-                     " Encendido electrónico: "+auto.get(a).getEncendidoElectronico()+
-                     " Tipo Traccion: "+auto.get(a).getTipoTraccion()+
+                     "-Marca: "+auto.get(a).getMarca()+
+                     "-Modelo: "+auto.get(a).getModelo()+
+                     "-Color: "+auto.get(a).getColor()+
+                     "-Capacidad: "+auto.get(a).getCapacidad()+
+                     "-Encendido electrónico: "+auto.get(a).getEncendidoElectronico()+
+                     "-Tipo Traccion: "+auto.get(a).getTipoTraccion()+
+                     "-Como funciona: "+ comoFunciona()+
+                     "-Que transporta: "+ queTransporta()+
+                     "-Vehiculo: Automovil"+
                      "\n";
          
          }
         try {
-            FileOutputStream f = new FileOutputStream("/Users/macbookpro/NetBeansProjects/curso-java-master/08EjercicioAbstracInterfaz/src/tipovehiculo/vehiculos.txt",true);
+            FileOutputStream f = new FileOutputStream("C:\\Users\\me.horta\\Documents\\CursoJava\\curso-java\\08EjercicioAbstracInterfaz\\src\\tipovehiculo\\vehiculos.txt",true);
             OutputStreamWriter oS= new OutputStreamWriter(f,"UTF-8");
             BufferedWriter bW = new BufferedWriter(oS);
             String lineaError = linea;
