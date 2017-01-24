@@ -5,6 +5,7 @@
  */
 package bd;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -69,6 +70,33 @@ public class EstadoBD {
     
     }
     
+    static public Estado[] getEstados()throws ClassNotFoundException,SQLException{
+        Class.forName(JDBC_DRIVER);
+        Connection conexion = DriverManager.getConnection(URL,USER,PASS);
+        Statement consulta = conexion.createStatement();
+        ResultSet resultado = consulta.executeQuery("SELECT * FROM estados");
+        ArrayList<Estado> lista = new ArrayList<Estado>();
+        
+        while (resultado.next()){
+            lista.add(new Estado(
+                    resultado.getInt("idEstado"),
+                    resultado.getString("nombre"),
+                    resultado.getInt("municipios"),
+                    resultado.getString("capital"),
+                    resultado.getString("comidaTipica"),
+                    resultado.getInt("poblacion")
+            
+            ));
+                    
+                    
+                    
+        
+        
+        
+        }
+        return (Estado[]) lista.toArray();
+    
+    }
     
     
 }

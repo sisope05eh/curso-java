@@ -10,15 +10,15 @@ package modelo;
  * @author me.horta
  */
 public class Estado {
-    private int Estado,municipios,poblacion;
+    private int idEstado,municipios,poblacion;
     private String nombre,comidaTipica,capital;
 
     public int getEstado() {
-        return Estado;
+        return idEstado;
     }
 
     public void setEstado(int Estado) {
-        this.Estado = Estado;
+        this.idEstado = Estado;
     }
 
     public int getMunicipios() {
@@ -61,13 +61,16 @@ public class Estado {
         this.capital = capital;
     }
 
-    public Estado(int Estado, int municipios, int poblacion, String nombre, String comidaTipica, String capital) {
-        this.Estado = Estado;
-        this.municipios = municipios;
-        this.poblacion = poblacion;
+    public Estado(int idEstado,String nombre, int municipios,String capital,String comidaTipica, int poblacion ) {
+        this.idEstado = idEstado;
         this.nombre = nombre;
-        this.comidaTipica = comidaTipica;
-        this.capital = capital;
+        this.municipios = municipios;
+         this.capital = capital;
+         this.comidaTipica = comidaTipica;
+        this.poblacion = poblacion;
+       
+        
+       
     }
     public Estado(){
     
