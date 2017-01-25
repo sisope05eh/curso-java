@@ -27,15 +27,16 @@ import javax.swing.JOptionPane;
  * @author me.horta
  */
 public class Motocicleta extends Vehiculos  {
-    String cascos,tipoMotocicleta,tipoEncendido;
+    String tipoMotocicleta,tipoEncendido;
     ArrayList<Motocicleta> moto = new ArrayList();
     String linea;
-    public String getCascos() {
+    int cascos;
+    public int getCascos() {
         return cascos;
     }
 
     public Motocicleta(){}
-    public void setCascos(String cascos) {
+    public void setCascos(int cascos) {
         this.cascos = cascos;
     }
 
@@ -55,7 +56,7 @@ public class Motocicleta extends Vehiculos  {
         this.tipoEncendido = tipoEncendido;
     }
     
-    public Motocicleta(int idvehiculo,String idTipoVehiculo,String marca, String modelo,String color,String capacidad,String cascos,String tipoMotocicleta,String tipoEncendido ){
+    public Motocicleta(int idvehiculo,String idTipoVehiculo,String marca, String modelo,String color,String capacidad,int cascos,String tipoMotocicleta,String tipoEncendido ){
         super(idvehiculo,idTipoVehiculo,marca,modelo,color,capacidad);
         this.cascos= cascos;
         this.tipoMotocicleta = tipoMotocicleta;

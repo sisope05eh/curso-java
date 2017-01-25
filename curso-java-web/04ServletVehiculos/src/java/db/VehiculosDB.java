@@ -13,6 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Automovil;
+import model.Avion;
+import model.Bicicleta;
+import model.Motocicleta;
 import model.Vehiculos;
 
 /**
@@ -23,7 +26,7 @@ public class VehiculosDB {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/vehiculos";
     private static final String USER ="root";
-    private static final String PASS="root";
+    private static final String PASS="sisope05";
     
     public List<Vehiculos> getVehiculos(String valor) throws ClassNotFoundException, SQLException{
         Class.forName(JDBC_DRIVER);
@@ -87,6 +90,63 @@ public class VehiculosDB {
          
          queryAutomovil= String.format("insert into automovil(idTipoVehiculo,tipoEncendido,tipoTraccion)VALUES('%s','%s','%s') ", 
                 automovil.getIdTipoVehiculo(),automovil.getEncendidoElectronico(),automovil.getTipoTraccion()
+                );
+       int result =consulta.executeUpdate(queryVehiculo);
+       int result2 =consulta.executeUpdate(queryAutomovil);
+        consulta.close();
+        conexion.close();
+        if(result >0 && result2>0){
+            return true;
+        }
+        
+        }
+        else if(tipo.equals("avion")){
+        
+        Avion avion = (Avion)auto;
+         queryVehiculo= String.format("insert into vehiculo(marca,color,modelo,idTipo) VALUES('%s','%s','%s','%s') ", 
+                avion.getMarca(),avion.getColor(),avion.getModelo(),avion.getIdTipoVehiculo()
+                );
+         
+         queryAutomovil= String.format("insert into avion(idTipoVehiculo,tipoAvion,propulsores)VALUES('%s','%s','%s') ", 
+                avion.getIdTipoVehiculo(),avion.getTipoAvion(),avion.getPropulsores()
+                );
+       int result =consulta.executeUpdate(queryVehiculo);
+       int result2 =consulta.executeUpdate(queryAutomovil);
+        consulta.close();
+        conexion.close();
+        if(result >0 && result2>0){
+            return true;
+        }
+        
+        }
+        else if(tipo.equals("bici")){
+        
+        Bicicleta bici = (Bicicleta)auto;
+         queryVehiculo= String.format("insert into vehiculo(marca,color,modelo,idTipo) VALUES('%s','%s','%s','%s') ", 
+                bici.getMarca(),bici.getColor(),bici.getModelo(),bici.getIdTipoVehiculo()
+                );
+         
+         queryAutomovil= String.format("insert into bicicleta(idTipoVehiculo,tipoBicicleta,tipoFrenos,Velocimetro)VALUES('%s','%s','%b','%b') ", 
+                bici.getIdTipoVehiculo(),bici.getTipoBicicleta(),bici.getFrenosDisco(),bici.getVelocimetro()
+                );
+       int result =consulta.executeUpdate(queryVehiculo);
+       int result2 =consulta.executeUpdate(queryAutomovil);
+        consulta.close();
+        conexion.close();
+        if(result >0 && result2>0){
+            return true;
+        }
+        
+        }
+        else if(tipo.equals("moto")){
+        
+        Motocicleta moto = (Motocicleta)auto;
+          queryVehiculo= String.format("insert into vehiculo(marca,color,modelo,idTipo) VALUES('%s','%s','%s','%s') ", 
+                moto.getMarca(),moto.getColor(),moto.getModelo(),moto.getIdTipoVehiculo()
+                );
+         
+         queryAutomovil= String.format("insert into motocicleta(idTipoVehiculo,cascos,tipoMotocicleta,tipoEncendido)VALUES('%s','%s','%s','%s') ", 
+                moto.getIdTipoVehiculo(),moto.getCascos(),moto.getTipoMotocicleta(),moto.getTipoEncendido()
                 );
        int result =consulta.executeUpdate(queryVehiculo);
        int result2 =consulta.executeUpdate(queryAutomovil);

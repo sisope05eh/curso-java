@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Automovil;
 import model.Vehiculos;
 
 /**
@@ -75,7 +76,7 @@ public class ServletVehiculos extends HttpServlet {
          try {
            List<Vehiculos> lista;
              
-            lista = aDB.getVehiculos(valor);
+            lista = aDB.getVehiculos(valor);            
             PrintWriter pw = response.getWriter();
             lista.forEach(auto -> pw.print(auto));
             
@@ -89,7 +90,16 @@ public class ServletVehiculos extends HttpServlet {
         } else if ("registrar".equals(action)) {
             String valor = request.getParameter("tipo");
             if(valor.equals("automovil")){
-             response.sendRedirect("registrar.html");
+             response.sendRedirect("registraAuto.html");
+            }
+            if(valor.equals("avion")){
+             response.sendRedirect("registraAvion.html");
+            }
+            if(valor.equals("bici")){
+             response.sendRedirect("registraBici.html");
+            }
+             if(valor.equals("moto")){
+             response.sendRedirect("registraMoto.html");
             }
         }           
         

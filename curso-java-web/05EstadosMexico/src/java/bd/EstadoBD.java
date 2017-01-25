@@ -22,7 +22,7 @@ public class EstadoBD {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/estadosmexico";
     private static final String USER ="root";
-    private static final String PASS="root";
+    private static final String PASS="sisope05";
     
     public static String getCapital(String nombreEstado) throws ClassNotFoundException, SQLException{
     
@@ -94,7 +94,8 @@ public class EstadoBD {
         
         
         }
-        return (Estado[]) lista.toArray();
+        Estado[] es = new Estado[lista.size()];
+        return lista.toArray(es);
     
     }
     

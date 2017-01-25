@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Automovil;
+import model.Avion;
+import model.Bicicleta;
+import model.Motocicleta;
 import model.Vehiculos;
 
 /**
@@ -86,6 +89,80 @@ public class ServletInsertar extends HttpServlet {
 
             try {
                 if(aDB.InsertaVehiculos(auto,"auto")==true){
+                    response.sendRedirect("Principal.html");
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } 
+         else  if ("Registrar Avion".equals(action)) {
+            // Invoke FirstServlet's job here.
+            request.setCharacterEncoding("UTF-8");
+            Avion avion= new Avion();
+        
+            avion.setIdTipoVehiculo(request.getParameter("idTipo"));
+            avion.setMarca(request.getParameter("marca"));
+            avion.setColor(request.getParameter("color"));
+            avion.setModelo(request.getParameter("modelo"));
+            avion.setTipoAvion(request.getParameter("tipoAvion"));
+            avion.setPropulsores(request.getParameter("propulsores"));
+            VehiculosDB aDB = new VehiculosDB();
+
+            try {
+                if(aDB.InsertaVehiculos(avion,"avion")==true){
+                    response.sendRedirect("Principal.html");
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } 
+         else  if ("Registrar Bici".equals(action)) {
+            // Invoke FirstServlet's job here.
+            request.setCharacterEncoding("UTF-8");
+            Bicicleta bici= new Bicicleta();
+        
+            bici.setIdTipoVehiculo(request.getParameter("idTipo"));
+            bici.setMarca(request.getParameter("marca"));
+            bici.setColor(request.getParameter("color"));
+            bici.setModelo(request.getParameter("modelo"));
+            bici.setTipoBicicleta(request.getParameter("tipoBicicleta"));
+            bici.setFrenosDisco(Boolean.parseBoolean(request.getParameter("tipoFrenos")));
+            bici.setVelocimetro(Boolean.parseBoolean(request.getParameter("velocimetro")));
+            VehiculosDB aDB = new VehiculosDB();
+
+            try {
+                if(aDB.InsertaVehiculos(bici,"bici")==true){
+                    response.sendRedirect("Principal.html");
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ServletInsertar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } 
+          else  if ("Registrar Moto".equals(action)) {
+            // Invoke FirstServlet's job here.
+            request.setCharacterEncoding("UTF-8");
+            Motocicleta moto= new Motocicleta();
+        
+            moto.setIdTipoVehiculo(request.getParameter("idTipo"));
+            moto.setMarca(request.getParameter("marca"));
+            moto.setColor(request.getParameter("color"));
+            moto.setModelo(request.getParameter("modelo"));
+            moto.setCascos(Integer.parseInt(request.getParameter("cascos")));
+            moto.setTipoMotocicleta(request.getParameter("tipoMotocicleta"));
+            moto.setTipoEncendido(request.getParameter("tipoEncendido"));
+            VehiculosDB aDB = new VehiculosDB();
+
+            try {
+                if(aDB.InsertaVehiculos(moto,"moto")==true){
                     response.sendRedirect("Principal.html");
                 }
             } catch (ClassNotFoundException ex) {
