@@ -11,7 +11,7 @@
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Aplication</param-name>
-            <param-value>ws.holamundo.holamundorest.HolaMundoApplication</param-value>
+            <param-value>ws.holamundo.HolaMundoApplication</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

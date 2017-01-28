@@ -14,14 +14,14 @@ import java.sql.Time;
  */
 public class Corrida {
 
-    public int idCorrida;
-    public String origen;
-    public String destino;
-    public String fechaSalida;
-    public String horaSalida;
-    public String fechaLlegada;
-    public String horaLlegada;
-    public int escalas;
+    private int idCorrida;
+    private String origen;
+    private String destino;
+    private String fechaSalida;
+    private String horaSalida;
+    private String fechaLlegada;
+    private String horaLlegada;
+    private int escalas;
 
     public int getIdCorrida() {
         return idCorrida;

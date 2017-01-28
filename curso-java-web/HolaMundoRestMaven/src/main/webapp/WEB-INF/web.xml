@@ -6,12 +6,10 @@
 	 version="3.1">
     <servlet>
         <servlet-name>HolaMundoMaven</servlet-name>
-        <!--<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>-->
-        
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
         <init-param>
-            <param-name>javax.ws.rs.Aplication</param-name>
-            <param-value>ws.holamundo.holamundorest.HolaMundoApplication</param-value>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>ws.holamundo.HolaMundoApplication</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
@@ -21,6 +19,11 @@
     <context-param>
         <param-name>resteasy.servlet.mapping.prefix</param-name>
         <param-value>/rest/</param-value>
-        
     </context-param>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
 </web-app>

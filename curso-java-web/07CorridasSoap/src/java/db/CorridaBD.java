@@ -26,16 +26,14 @@ public class CorridaBD {
     private static final String user = "root";
     private static final String pass = "sisope05";
 
-    public static Boolean insertar(Corrida corrida) throws ClassNotFoundException, SQLException {
+    public static Boolean insertar(String origen,String destino,String fSalida,String hSalida,String fLlegada,String hLlegada,int escalas) throws ClassNotFoundException, SQLException {
         Class.forName(jdbcDriver);
         
         Connection conexion = DriverManager.getConnection(dbUrl, user, pass);
         Statement consulta = conexion.createStatement();
         String inserta = String.format("INSERT INTO corrida(origen, destino, fechaSalida, horaSalida, fechaLlegada, HoraLlegada, escalas) "
                 + "VALUES ('%s','%s','%s','%s','%s','%s',%d)",
-                corrida.getOrigen(), corrida.getDestino(), corrida.getFechaSalida().toString(),
-                corrida.getHoraSalida().toString(), corrida.getFechaLlegada().toString(), 
-                corrida.getHoraLlegada().toString(), corrida.getEscalas());
+                origen,destino,fSalida,hSalida,fLlegada,hLlegada,escalas);
         int respuesta = consulta.executeUpdate(inserta);
         
         consulta.close();
@@ -47,7 +45,8 @@ public class CorridaBD {
         Class.forName(jdbcDriver);
         Connection conexion = DriverManager.getConnection(dbUrl, user, pass);
         Statement consulta = conexion.createStatement();
-        String qry= String.format("select * from corrida where fechaSalida >= '%s' and horaSalida>='%s' and fechaLlegada<='%s' and horaLlegada<='%s' ",fSalida,hSalida,fLlegada,hLlegada);
+        String qry= String.format("select * from corrida where fechaSalida >= '%s' and horaSalida >= '%s' and fechalLegada <= '%s'and horaLlegada<='%s'",fSalida,hSalida,fLlegada,hLlegada);
+        System.out.println(qry);
         ResultSet resultado = consulta.executeQuery(qry);
         ArrayList<Corrida> lista = new ArrayList<Corrida>();
         
@@ -72,5 +71,21 @@ public class CorridaBD {
         Corrida[] es = new Corrida[lista.size()];
         return lista.toArray(es);
     
+    }
+ 
+ 
+     public static Boolean eliminar(int id) throws ClassNotFoundException, SQLException {
+        Class.forName(jdbcDriver);
+        
+        Connection conexion = DriverManager.getConnection(dbUrl, user, pass);
+        Statement consulta = conexion.createStatement();
+        String elimina = String.format("DELETE FROM corrida where idCorrida=%d ",
+                id);
+        int respuesta = consulta.executeUpdate(elimina);
+        
+        consulta.close();
+        conexion.close();
+
+        return respuesta == 1 ? true:false;
     }
 }
