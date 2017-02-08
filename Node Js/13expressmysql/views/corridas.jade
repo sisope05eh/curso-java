@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Lista de Corridas
+  ul#Lista
+    each corrida,i in corridas 
+        li
+            p Origen: #{corrida.origen}
+            p Destino: #{corrida.destino}
+            p Hora Salida: #{corrida.horaSalida}
+            hr

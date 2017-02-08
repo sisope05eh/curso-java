@@ -1,0 +1,19 @@
+{
+  "name": "ejemplochat",
+  "version": "0.1.0",
+  "description": "Un chat, de GFA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Chat",
+    "Seguro"
+  ],
+  "author": "Eduardo Horta",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1",
+    "socket.io": "^1.7.2"
+  }
+}

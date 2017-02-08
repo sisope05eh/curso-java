@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Detalle de corrida N°: #{corridas.idCorrida}
+    p.ciudad Origen: #{corridas.origen}
+    p.ciudad Destino: #{corridas.destino}
+    p Fecha Salida: #{corridas.fechaSalida}
+    p Hora Salida: #{corridas.horaSalida}
+    p Fecha Llegada: #{corridas.fechaLlegada}
+    p Hora Llegada: #{corridas.horaLlegada}
+    p Escalas: #{corridas.escalas}
+    script.
+        alert("Mensaje por java script")
+     
+block estilos
+    link(href='/stylesheets/corridas.css',rel='stylesheet')

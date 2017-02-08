@@ -1,0 +1,4 @@
+ws\corridas\CorridasApplication.class
+ws\corridas\WSCorridas.class
+modelo\Corrida.class
+bd\BDCorrida.class

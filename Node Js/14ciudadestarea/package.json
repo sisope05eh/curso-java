@@ -1,0 +1,17 @@
+{
+    "name": "14ciudades",
+    "version": "0.1.0",
+    "description": "Consume un servicio para mostrar las ciudades de un país",
+    "main": "app.js",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "país",
+        "ciudad"
+    ],
+    "author": "Eduardo Horta",
+    "license": "ISC"
+}
